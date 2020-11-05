@@ -4,4 +4,6 @@ from .import views
 
 urlpatterns = [
     path('', views.home, name='home')
+    path('contact', views.home, name='home')
+    path('about', views.home, name='home')
 ]

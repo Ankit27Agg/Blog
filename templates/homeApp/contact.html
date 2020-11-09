@@ -2,5 +2,34 @@
 
 {% block title %} Contact {% endblock title %}
 {% block body %} 
-  <h4>this is body of contact. </h4>
+  
+  <div class="container">
+  <h3>Contact our Team</h3>
+  <form>
+  <div class="form-group">
+    <label for="name">Your Name</label>
+    <input class="form-control" type="text" id="name" aria-describedby="name" placeholder="Type here">
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input class="form-control" type="text" id="email" aria-describedby="email" placeholder="Type here">
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input class="form-control" type="text" id="phone" aria-describedby="phone" placeholder="Type here">
+  </div>
+
+  <div class="form-group">
+    <label for="desc">Tell us about your query.</label>
+    <textarea placeholder="Type here" class="form-control" name="desc" id="desc" cols="30" rows="4"></textarea>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  
+  </div>
+
+
 {% endblock body %}

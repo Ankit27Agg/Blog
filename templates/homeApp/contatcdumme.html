@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %} Contact {% endblock title %}
-{% block contactactive %}active{% endblock contactactive %}
 {% block body %} 
   
-  <div class="container .justify-content-center align-self-center">
+  <div class="container">
   <h3>Contact our Team</h3>
-  <form method="post" action="/contact" class="p-3 mb-3 bg-secondary text-dark w-50 ">
+  <form method="post" action="/contact" >
    {% csrf_token %}
   <div class="form-group">
     <label for="name">Your Name</label>
@@ -27,31 +26,34 @@
     <label for="desc">Tell us about your query.</label>
     <textarea placeholder="Type here" class="form-control" name="desc"  name="desc" id="desc" cols="30" rows="4"></textarea>
   </div>
+
  
-   <!-- Button trigger modal -->
+  <button type="submit" class="btn btn-primary">Submit</button> 
+  {% comment %} <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  submit
-</button>   
+  Launch demo modal
+</button>
+    
  <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">FORM</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Confirm Submission
+        confirm submission
       </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-success">YES</button>
-        {% comment %} <button class="btn btn-primary">no</button> {% endcomment %}
+        <button type="submit" class="btn btn-primary">yes</button>
+        <button class="btn btn-primary">no</button>
       </div>
     </div>
   </div>
-</div>
+</div> {% endcomment %}
   </form>
   
   </div>

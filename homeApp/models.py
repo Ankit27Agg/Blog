@@ -5,5 +5,9 @@ class Contact(models.Model):
   sno = models.AutoField(primary_key=True)
   name = models.CharField(max_length=255)
   email = models.CharField(max_length=255)
-  phone = models.CharField(max_length=255)
-  name = models.TextField()
+  phone = models.CharField(max_length=12)
+  description = models.TextField()
+  timeStamp = models.DateTimeField(auto_now_add=True, blank=True)
+
+  def __str__(self):
+    return  self.name + " :   " + self.phone 

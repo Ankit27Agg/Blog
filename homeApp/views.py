@@ -5,7 +5,7 @@ from django.contrib import messages
 # Create your views here.
 
 def home(request):
-  messages.warning(request, 'WELCOME to the home page.')
+  messages.info(request, 'WELCOME to the home page.')
   return render(request, 'homeApp/home.html')
     
 def contact(request):

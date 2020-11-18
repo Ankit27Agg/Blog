@@ -27,3 +27,7 @@ def contact(request):
 def about(request):
   messages.warning(request, 'WELCOME to the about us page.')
   return render(request, 'homeApp/about.html')
+
+
+def search(request):
+  return HttpResponse('this is search page')

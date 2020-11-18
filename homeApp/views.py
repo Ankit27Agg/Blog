@@ -31,7 +31,9 @@ def about(request):
 
 
 def search(request):
+  query = request.GET['result'];
   messages.success(request, 'WELCOME to the about us page.')
-  allPosts = Post.objects.all()
+  # allPosts = Post.objects.all()
+  allPosts = Post.objects.filter(title__icontains=query)
   context = {'allPosts': allPosts}
   return render(request, 'homeApp/search.html', context)

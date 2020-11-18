@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from .models import Contact
 from django.contrib import messages
+from myBlogApp.models import Post
 
 # Create your views here.
 
@@ -30,4 +31,7 @@ def about(request):
 
 
 def search(request):
-  return HttpResponse('this is search page')
+  messages.success(request, 'WELCOME to the about us page.')
+  allPosts = Post.objects.all()
+  context = {'allPosts': allPosts}
+  return render(request, 'homeApp/search.html', context)

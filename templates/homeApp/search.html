@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %} blogHome {% endblock title %}
+{% block blogactive %}active{% endblock blogactive %}
+{% block body %}
+
+<div class="container px-5">
+<h3>Search Results</h3>
+{% for post in allPosts %}
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title text-success">{{post.title}}</h5>
+      <p class="card-text">{{post.content | truncatechars:120}}</p>
+      <p class="m-0"> Author:{{post.author}}</p>
+      <p class="card-text "><small class="text-primary">{{post.timeStamp}}</small></p>
+      <a href="/blog/{{post.slug}}" class="btn btn-primary">Continue Reading</a>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock body %}

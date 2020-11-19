@@ -6,6 +6,17 @@
 
 <div class="container px-5">
 <h3>Search Results</h3>
+
+  {% if allPosts|length < 1 %}
+     Your search -<strong> {{  result | truncatechars:10  }}</strong>- did not match any documents.
+    <br><br><br><br>
+    <p>SUGESTIONS:</p>
+    <p>»Make sure that all words are spelled correctly.</p>
+    <p>»Try different keywords.</p>
+    <p>»Try more general keywords.</p>
+  
+
+  {% endif %}
 {% for post in allPosts %}
   <div class="card mb-4">
     <div class="card-body">

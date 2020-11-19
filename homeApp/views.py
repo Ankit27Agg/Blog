@@ -31,9 +31,15 @@ def about(request):
 
 
 def search(request):
-  query = request.GET['result'];
   messages.success(request, 'WELCOME to the about us page.')
-  # allPosts = Post.objects.all()
-  allPosts = Post.objects.filter(title__icontains=query)
-  context = {'allPosts': allPosts}
+  query = request.GET['result'];
+  if len(query) >= 50:
+    allPosts = []
+  else:
+    allPostsTitle = Post.objects.filter(title__icontains=query)
+    allPostsContent = Post.objects.filter(content__icontains=query)
+    allPostsAuthor = Post.objects.filter(author__icontains=query)
+    allPosts = allPostsTitle.union(allPostsContent, allPostsAuthor)
+    context = {'allPosts': allPosts, "result": query}
+
   return render(request, 'homeApp/search.html', context)

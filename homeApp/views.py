@@ -34,7 +34,7 @@ def search(request):
   messages.success(request, 'WELCOME to the about us page.')
   query = request.GET['result'];
   if len(query) >= 50:
-    allPosts = []
+    allPosts = Posts.objects.none()
   else:
     allPostsTitle = Post.objects.filter(title__icontains=query)
     allPostsContent = Post.objects.filter(content__icontains=query)

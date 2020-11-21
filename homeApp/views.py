@@ -75,3 +75,13 @@ def signupManager(request):
   
   else:
     return HttpResponse("TRY AGAIN")
+
+
+# login manager
+def loginManager(request):
+  return HttpResponse('login')
+
+
+# logout manager
+def logoutManager(request):
+  return HttpResponse('logout')

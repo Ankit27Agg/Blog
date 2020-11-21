@@ -8,5 +8,7 @@ urlpatterns = [
     path('about', views.about, name='about'),
     path('search/', views.search, name='search'),
     path('signup', views.signupManager, name='signupManager'),
+    path('login', views.loginManager, name='loginManager'),
+    path('logout', views.logoutManager, name='logoutManager'),
     path('blog/', include('myBlogApp.urls'))
 ]

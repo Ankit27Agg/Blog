@@ -55,7 +55,16 @@ def signupManager(request):
     passwordName = request.POST['pname']
     firstName = request.POST['fname']
     lastName = request.POST['lname']
+    passwordName = request.POST['pname']
     confirmpasswordName = request.POST['cpname']
+
+    if len(passwordName)  > 10:
+      messages.error(request, 'password should be of less than 11 characters')
+      return redirect('home')
+
+    if passwordName != confirmpasswordName:
+      messages.error(request, 'confirm password is not same as password')
+      return redirect('home')
 
     newUser = User.objects.create_user(uname, ename, passwordName)
     newUser.first_name = firstName

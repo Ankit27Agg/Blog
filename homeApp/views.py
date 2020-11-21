@@ -1,12 +1,12 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import Contact
 from django.contrib import messages
+from django.contrib.auth.models import User
 from myBlogApp.models import Post
 
 # Create your views here.
 
 def home(request):
-  messages.info(request, 'WELCOME to the home page.')
   return render(request, 'homeApp/home.html')
     
 def contact(request):
@@ -43,3 +43,26 @@ def search(request):
     context = {'allPosts': allPosts, "result": query}
 
   return render(request, 'homeApp/search.html', context)
+
+
+
+
+def signupManager(request):
+  if request.method == 'POST':
+    
+    uname = request.POST['uname']
+    ename = request.POST['ename']
+    passwordName = request.POST['pname']
+    firstName = request.POST['fname']
+    lastName = request.POST['lname']
+    confirmpasswordName = request.POST['cpname']
+
+    newUser = User.objects.create_user(uname, ename, passwordName)
+    newUser.first_name = firstName
+    newUser.last_name = lastName
+    newUser.save()
+    messages.success(request, 'WELCOME to our company. Yo\'re info has been saved successfully. ')
+    return redirect('home')
+  
+  else:
+    return HttpResponse("TRY AGAIN")

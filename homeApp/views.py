@@ -79,7 +79,9 @@ def signupManager(request):
 
 # login manager
 def loginManager(request):
-  return HttpResponse('login')
+  usernamename = request.POST['usernamename']
+  passwordname = request.POST['passwordname']
+  return HttpResponse(' You\'re login. ENJOY blogs.')
 
 
 # logout manager

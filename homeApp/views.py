@@ -3,6 +3,7 @@ from .models import Contact
 from django.contrib import messages
 from django.contrib.auth.models import User
 from myBlogApp.models import Post
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -70,7 +71,7 @@ def signupManager(request):
     newUser.first_name = firstName
     newUser.last_name = lastName
     newUser.save()
-    messages.success(request, 'WELCOME to our company. Yo\'re info has been saved successfully. ')
+    messages.success(request, 'WELCOME to our company. Yo\'re info has been saved successfully. Please login. ')
     return redirect('home')
   
   else:
@@ -79,11 +80,28 @@ def signupManager(request):
 
 # login manager
 def loginManager(request):
-  usernamename = request.POST['usernamename']
-  passwordname = request.POST['passwordname']
+  if request.method == 'POST':
+    usernamename = request.POST['usernamename']
+    passwordname = request.POST['passwordname']
+
+    user = authenticate(username=usernamename, password=passwordname)
+    if user is not None:
+      login(request, user)
+      messages.success(request, 'you are logged in successfully. ')
+      # request.POST['signupid'] = 'hello' + usernamename
+      return redirect('home')
+    else:
+      messages.error(request, 'TRY AGAIN. invalid password or username. ')
+      return redirect('home')
+
+  else:
+    return HttpResponse('404 error')
+  
   return HttpResponse(' You\'re login. ENJOY blogs.')
 
 
 # logout manager
 def logoutManager(request):
-  return HttpResponse('logout')
+    logout(request)
+    messages.success(request, 'you are logged out successfully. ')
+    return redirect('home')

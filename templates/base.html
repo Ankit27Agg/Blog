@@ -37,7 +37,7 @@
         <li class="nav-item {% block contactactive %}{% endblock contactactive %}">
           <a class="nav-link" href="/contact">Contact</a>
         </li>
-        
+
 
       </ul>
       {% comment %} signup/login {% endcomment %}
@@ -46,17 +46,18 @@
 
       {% if user.is_authenticated  %}
       <ul class="navbar-nav ml-auto">
-           <li class="nav-item dropdown">
-        <a class="btn btn-warning p-2 mr-2 nav-link dropdown-toggle text-capitalize text-dark " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Hello {{request.user}}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">My Profile</a>
-          <a class="dropdown-item" href="contact">Help Desk</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="/logout">Logout</a>
-        </div>
-      </li>
+        <li class="nav-item dropdown">
+          <a class="btn btn-warning p-2 mr-2 nav-link dropdown-toggle text-capitalize text-dark " href="#"
+            id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hello {{request.user}}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">My Profile</a>
+            <a class="dropdown-item" href="contact">Help Desk</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </div>
+        </li>
       </ul>
       {% else %}
       <button type="button" class="btn btn-warning ml-2" data-toggle="modal" data-target="#loginModal">
@@ -72,7 +73,7 @@
         <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
       </form>
 
-      
+
 
       <!-- Modal -->
       <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -86,9 +87,9 @@
             </div>
             <div class="modal-body">
               <form action="/signup" method="post"> {% csrf_token %}
-              <div class="form-group">
+                <div class="form-group">
                   <label for="fname">First Name</label>
-                  <input type="text" class="form-control" id="fname"  name="fname" required>
+                  <input type="text" class="form-control" id="fname" name="fname" required>
                 </div>
                 <div class="form-group">
                   <label for="name">Last Name</label>
@@ -100,7 +101,8 @@
                 </div>
                 <div class="form-group">
                   <label for="ename">Email address</label>
-                  <input type="email" class="form-control" id="ename" name="ename" aria-describedby="emailHelp" required>
+                  <input type="email" class="form-control" id="ename" name="ename" aria-describedby="emailHelp"
+                    required>
                   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                     else.</small>
                 </div>
@@ -120,7 +122,7 @@
       </div>
 
 
-      
+
 
       <!-- Modal -->
       <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -136,7 +138,8 @@
               <form action='/login' method='post'>{% csrf_token %}
                 <div class="form-group">
                   <label for="usernamename">Username</label>
-                  <input type="text" class="form-control" id="usernamename" name="usernamename" aria-describedby="emailHelp" required>
+                  <input type="text" class="form-control" id="usernamename" name="usernamename"
+                    aria-describedby="emailHelp" required>
                 </div>
                 <div class="form-group">
                   <label for="passwordname">Password</label>

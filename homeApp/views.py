@@ -7,9 +7,14 @@ from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
+
+
 def home(request):
   return render(request, 'homeApp/home.html')
     
+
+
+
 def contact(request):
   messages.warning(request, 'WELCOME to the contact us page.')
   if request.method=="POST":
@@ -26,9 +31,14 @@ def contact(request):
 
   return render(request, 'homeApp/contact.html')
 
+
+
+
 def about(request):
   messages.warning(request, 'WELCOME to the about us page.')
   return render(request, 'homeApp/about.html')
+
+
 
 
 def search(request):
@@ -47,7 +57,7 @@ def search(request):
 
 
 
-
+#signup manager
 def signupManager(request):
   if request.method == 'POST':
     
@@ -78,6 +88,8 @@ def signupManager(request):
     return HttpResponse("TRY AGAIN")
 
 
+
+
 # login manager
 def loginManager(request):
   if request.method == 'POST':
@@ -98,6 +110,8 @@ def loginManager(request):
     return HttpResponse('404 error')
   
   return HttpResponse(' You\'re login. ENJOY blogs.')
+
+
 
 
 # logout manager

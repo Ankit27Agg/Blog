@@ -4,5 +4,6 @@ from .import views
 
 urlpatterns = [
     path('', views.blogHome, name='blogHome'),
-    path('<str:slug>', views.blogPost, name='blogpost')
+    path('<str:slug>', views.blogPost, name='blogpost'),
+    path('comments', views.comments, name='comments')
 ]
